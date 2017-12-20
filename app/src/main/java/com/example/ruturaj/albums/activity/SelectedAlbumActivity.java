@@ -71,7 +71,8 @@ public class SelectedAlbumActivity extends AppCompatActivity {
       public void onClick(View view) {
         YoYo.with(Techniques.Pulse).duration(600).playOn(findViewById(R.id.button));
         Intent intent = new Intent(Intent.ACTION_PICK,
-            MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+            android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        intent.setType("image/*");
         intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
         intent.setAction(Intent.ACTION_GET_CONTENT);
         startActivityForResult(Intent.createChooser(intent, "Select Picture"), RESULT_GALLERY);
